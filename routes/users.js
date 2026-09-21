@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
-const plm = require("passport-local-mongoose");
+const plm = require("passport-local-mongoose").default;
+
 mongoose.connect("mongodb://127.0.0.1:27017/Pinterest");
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
     unique: true,
   },
-
   password: {
     type: String,
     required: true,

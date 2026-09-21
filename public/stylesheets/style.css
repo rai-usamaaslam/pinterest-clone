@@ -1,8 +1,167 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+body {
+  background-color: #767676; /* Pinterest dark gray background */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* Fixed Top-Left "Sign up" button */
+.upbtn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  width: 110px;
+  padding: 10px 0;
+  background-color: #e9e9e9;
+  border-radius: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #111;
+}
+
+.upbtn:hover {
+  background-color: #d8d8d8;
+}
+
+/* Central Card */
+.container {
+  background-color: white;
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 0;
+  border-radius: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin: auto;
+}
+
+.content {
+  width: 268px; /* Standard Pinterest form inner width */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.img1 {
+  width: 45px;
+  margin-bottom: 8px;
+}
+
+.header {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 22px;
+  line-height: 1.2;
+  color: #111;
+}
+
+.detail {
+  width: 100%;
+  height: 48px;
+  margin: 4px 0;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #111;
+  border: 2px solid #cdcdcd;
+  border-radius: 16px;
+}
+
+.detail:focus {
+  border-color: #0074e4;
+  outline: none;
+}
+
+h4 {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  margin: 6px 0 14px 4px;
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 4px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.int {
+  background-color: #e60023; /* Pinterest Red */
+  margin: 10px 0 4px 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.int:hover {
+  background-color: #ad081b;
+}
+
+.or {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 10px 0;
+  color: #111;
+}
+
+.fbk {
+  background-color: #1877f2;
+}
+
+.fbk a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.fbk:hover {
+  background-color: #166fe5;
+}
+
+.ggl {
+  background-color: #e9e9e9;
+}
+
+.ggl a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ggl:hover {
+  background-color: #d8d8d8;
+}
+
+footer p {
+  font-size: 11px;
+  margin: 8px 0;
+  color: #5f5f5f;
+  line-height: 1.3;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 16px 0;
 }

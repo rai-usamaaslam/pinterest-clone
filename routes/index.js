@@ -1,35 +1,77 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var userModel=require('./users');
-var postModel=require('./post');
-const localStrategy=require('passport-local');
-const passport = require('passport');
-passport.authenticate(new localStrategy(userModel.authenticate()));
+
+var userModel = require("./users");
+
+const LocalStrategy = require("passport-local");
+const passport = require("passport");
+
+// Passport setup
+passport.use(new LocalStrategy(userModel.authenticate()));
+
+passport.serializeUser(userModel.serializeUser());
+passport.deserializeUser(userModel.deserializeUser());
 
 
-
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+// Home
+router.get("/", function (req, res) {
+  res.render("index", { title: "Express" });
 });
 
-router.post('/register',function(req,res){
-  const {username,email,fullname}=req.body;
+
+// Profile
+router.get("/profile", function (req, res) {
+  res.send("Profile");
+});
+
+
+// Register
+router.post("/register", function (req, res) {
+
+  const { username, email, fullname, password } = req.body;
+
   const userData = new userModel({
     username,
     email,
-    fullname   
+    fullname
   });
-  userModel.register(userData,req.body.password)
-  .then(function(){
-    passport.authenticate("local")(req,res,function(){
-      res.redirect('/profile');
+
+  userModel.register(userData, password)
+    .then(function () {
+
+      passport.authenticate("local")(req, res, function () {
+        res.redirect("/users/profile");
+      });
+
     })
-  })
+    .catch(function (err) {
+      res.status(500).send(err.message);
+    });
 });
 
-router.post('login',passport.authenticate('local',{
-  successRedirect:'/profile',
-  failureRedirect:'/'
-}),function(req,res){});
+
+// Login
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/users/profile",
+    failureRedirect: "/"
+  })
+);
+
+
+// Logout
+router.get("/logout", function (req, res, next) {
+
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+
+    res.redirect("/");
+  });
+
+});
+
 
 module.exports = router;
