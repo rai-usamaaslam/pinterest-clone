@@ -18,7 +18,7 @@ router.get("/", function (req, res) {
 
 // Profile
 router.get("/profile",isLoggedIn, function (req, res) {
-  res.send("Profile");
+  res.render("Profile");
 });
 
 router.get('/login',function(req,res){
@@ -27,6 +27,7 @@ router.get('/login',function(req,res){
 router.get('/feed',function(req,res){
   res.render('feed');
 })
+
 
 // Register
 router.post("/register", function (req, res) {
