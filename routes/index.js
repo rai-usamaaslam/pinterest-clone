@@ -25,6 +25,11 @@ router.post('/register',function(req,res){
       res.redirect('/profile');
     })
   })
-})
+});
+
+router.post('login',passport.authenticate('local',{
+  successRedirect:'/profile',
+  failureRedirect:'/'
+}),function(req,res){});
 
 module.exports = router;
