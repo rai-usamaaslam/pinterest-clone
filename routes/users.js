@@ -9,10 +9,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
 
   fullname: {
     type: String,
@@ -37,5 +33,7 @@ const userSchema = new mongoose.Schema({
     },
   ],
 });
+
 userSchema.plugin(plm);
+
 module.exports = mongoose.model("User", userSchema);
