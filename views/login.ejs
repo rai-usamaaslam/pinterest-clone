@@ -33,7 +33,9 @@
         </svg>
 
         <h1 class="header">Welcome to Pinterest</h1>
-
+         <% if (error.length > 0) { %>
+  <p class="error"><%= error %></p>
+<% } %>
         <!-- Login Form -->
         <form action="/login" method="POST">
           <div class="input-group">
