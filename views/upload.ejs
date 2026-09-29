@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Create Pin</title>
+
+  <link rel="stylesheet" href="/stylesheets/upload.css">
+</head>
+
+<body>
+
+  <main class="create-pin">
+
+    <div class="pin-details">
+
+      <div class="top-bar">
+        <h1>Create Pin</h1>
+      </div>
+
+      <form action="/upload" method="post" enctype="multipart/form-data">
+
+        <div class="input-group file-group">
+          <label for="file">Image</label>
+
+          <input
+            type="file"
+            id="file"
+            name="file"
+            accept="image/*"
+            required
+          >
+        </div>
+        <div class="input-group">
+          <label for="title">Title</label>
+
+          <input
+            type="text"
+            id="title"
+            name="filecaption"
+            placeholder="Add a title"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="description">Description</label>
+
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Tell everyone what your Pin is about..."
+            rows="5"
+          ></textarea>
+        </div>
+
+        <div class="button-area">
+          <button type="submit">
+            Upload Pin
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
+
